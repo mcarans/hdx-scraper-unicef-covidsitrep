@@ -1,0 +1,10 @@
+TEMP_DIR=/srv/tmp
+LOG_FILE_ONLY=true
+USER_AGENT=scrapername-user-agent
+HDX_KEY=hdx-key-id
+PREPREFIX=preprefix-id
+#HDX_SITE=test
+HDX_URL=https://test-data.humdata.org
+#BASIC_AUTH=scrapername-basic-auth-id if you need to authenticate with the site being scraped
+EXTRA_PARAMS=
+#EXTRA_PARAMS=scrapername-extra-params-id if you need some secret parameters (eg. get parameter token)

@@ -1,0 +1,13 @@
+# development docker-compose file
+version: '0.1'
+
+services:
+
+  scraper:
+    image: unocha/hdx-scraper-unicef-sam:0.1
+    volumes:
+      - "./:/srv"
+    working_dir: /srv
+    command: ./run-dev.sh
+    env_file:
+      - run_env
