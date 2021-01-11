@@ -67,10 +67,8 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers):
         headers, countrydata, hxltags, folder, filename, resourcedata,
         date_function=process_date)
     if success is False:
-        logger.warning('%s for %s has no data!' % (category, countryname))
-        continue
-    resource.set_file_type('csv')  # set the file type to eg. csv
-    dataset.add_update_resource(resource)
+        logger.warning('%s has no data!' % name)
+        return None, None
 
     showcase = Showcase({
         'name': '%s-showcase' % slugified_name,
