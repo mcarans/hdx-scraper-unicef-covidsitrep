@@ -65,7 +65,7 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers):
     }
     success, results = dataset.generate_resource_from_iterator(
         headers, countrydata, hxltags, folder, filename, resourcedata,
-        date_function=process_date)
+        datecol='TIME_PERIOD')
     if success is False:
         logger.warning('%s has no data!' % name)
         return None, None
