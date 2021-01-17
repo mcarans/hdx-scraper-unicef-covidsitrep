@@ -1,3 +1,3 @@
 # Collector specific configuration
-base_url: "http://xxx/"
+base_url: "https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-03-04?format=csv"
 

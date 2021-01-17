@@ -46,7 +46,7 @@ class TestScraperName:
         return Download()
 
     def test_get_countriesdata(self, downloader):
-        countriesdata = get_countriesdata('http://xxx/', downloader)
+        countries, countriesdata, headers = get_countriesdata('http://xxx/', downloader)
         assert countriesdata == [TestScraperName.countrydata]
 
     def test_generate_dataset_and_showcase(self, configuration, downloader):

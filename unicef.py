@@ -72,10 +72,10 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers):
 
     showcase = Showcase({
         'name': '%s-showcase' % slugified_name,
-        'title':
-        'notes':
-        'url':
-        'image_url':
+        'title': name,
+        'notes': "",
+        'url': "",
+        'image_url': ""
     })
     showcase.add_tags([])
     return dataset, showcase
