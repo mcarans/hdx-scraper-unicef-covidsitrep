@@ -57,6 +57,7 @@ def get_countriesdata(url, downloader):
 
 def generate_dataset_and_showcase(folder, country, countrydata, headers):
     countryname = country["name"]
+    countryiso = country["iso3"].lower()
     title = "%s - COVID-19 Situation Report" % country["name"]
     logger.info("Creating dataset: %s" % title)
     name = "UNICEF SAM COVID-19 indicators for %s" % country["name"]
@@ -66,10 +67,21 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers):
     dataset.set_organization("3ab17ac1-1196-4501-a4dc-a01d2e52ff7c")
     dataset.set_subnational(False)
     dataset.set_expected_update_frequency("Every month")
-    filename = "covid19sitrep_%s.csv" % country["iso3"]
+    tags = ["hxl", "children"]
+    dataset.add_tags(tags)
+
+    try:
+        dataset.add_country_location(countryiso)
+    except HDXError:
+        logger.error(f"{countryname} ({countryiso})  not recognised!")
+        return None, None
+
+    filename = "covid19sitrep_%s.csv" % countryiso
     resourcedata = {
         "name": "COVID-19 indicators for %s" % countryname,
         "description": "COVID-19 Situation Report",
+        "countryiso":country["iso3"].lower(),
+        "countryname":countryname
     }
     success, results = dataset.generate_resource_from_iterator(
         headers,
