@@ -33,9 +33,9 @@ def main():
             if dataset:
                 dataset.update_from_yaml()
                 dataset.create_in_hdx(remove_additional_resources=True, hxl_update=False, updated_by_script='HDX Scraper: UNICEF Sam', batch=info['batch'])
-                dataset.generate_resource_view()
-                showcase.create_in_hdx()
-                showcase.add_dataset(dataset)
+                #dataset.generate_resource_view()
+                #showcase.create_in_hdx()
+                #showcase.add_dataset(dataset)
 
 
 if __name__ == '__main__':

@@ -63,7 +63,8 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers):
     name = "UNICEF SAM COVID-19 indicators for %s" % country["name"]
     slugified_name = slugify(name).lower()
     dataset = Dataset({"name": slugified_name, "title": title,})
-    dataset.set_maintainer("085d3bd8-9035-4b0e-9d2d-80e849dd7b07")
+#    dataset.set_maintainer("085d3bd8-9035-4b0e-9d2d-80e849dd7b07")
+    dataset.set_maintainer("9957c0e9-cd38-40f1-900b-22c91276154b")
     dataset.set_organization("3ab17ac1-1196-4501-a4dc-a01d2e52ff7c")
     dataset.set_subnational(False)
     dataset.set_expected_update_frequency("Every month")
