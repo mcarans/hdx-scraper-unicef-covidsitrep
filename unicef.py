@@ -36,29 +36,40 @@ hxltags = {
     "Observation status": "#indicator+status+name",
 }
 
+WORLD = "world"
 
-def get_countriesdata(url, downloader):
+def get_countriesdata(url, downloader, with_world=True):
     headers, iterator = downloader.get_tabular_rows(url, dict_form=True)
     countriesset = set()
     countriesdata = dict()
+    if with_world:
+        countriesset.add(WORLD)
     for row in iterator:
         countryiso3 = row["REF_AREA"]
         countriesset.add(countryiso3)
-        print("ROW:",row)
         countriesdata[countryiso3] = countriesdata.get(countryiso3, []) + [row]
+        if with_world:
+            countriesdata[WORLD] = countriesdata.get(WORLD, []) + [row]
+
     countries = list()
     for countryiso in sorted(list(countriesset)):
-        countryname = Country.get_country_name_from_iso3(countryiso)
-        if countryname is None:
-            continue
-        countries.append({"iso3": countryiso, "name": countryname})
+        if countryiso==WORLD:
+            countries.append({"iso3": WORLD, "name": "World"})
+        else:
+            countryname = Country.get_country_name_from_iso3(countryiso)
+            if countryname is None:
+                continue
+            countries.append({"iso3": countryiso, "name": countryname})
     return countries, countriesdata, headers
 
 
 def generate_dataset_and_showcase(folder, country, countrydata, headers):
     countryname = country["name"]
     countryiso = country["iso3"].lower()
-    title = "%s - COVID-19 Situation Report" % country["name"]
+    if countryiso == WORLD:
+        title = "Global COVID-19 Situation Report"
+    else:
+        title = "%s - COVID-19 Situation Report" % country["name"]
     logger.info("Creating dataset: %s" % title)
     name = "UNICEF SAM COVID-19 indicators for %s" % country["name"]
     slugified_name = slugify(name).lower()
@@ -68,27 +79,29 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers):
     dataset.set_organization("3ab17ac1-1196-4501-a4dc-a01d2e52ff7c")
     dataset.set_subnational(False)
     dataset.set_expected_update_frequency("Every month")
-    tags = ["hxl", "children"]
-    dataset.add_tags(tags)
+    dataset.add_tags(["hxl", "children", "COVID-19", "malnutrition"])
 
-    try:
-        dataset.add_country_location(countryiso)
-    except HDXError:
-        logger.error(f"{countryname} ({countryiso})  not recognised!")
-        return None, None
+    if countryiso == WORLD:
+        dataset.add_other_location("world")
+    else:
+        try:
+            dataset.add_country_location(countryiso)
+        except HDXError:
+            logger.error(f"{countryname} ({countryiso})  not recognised!")
+            return None, None
 
     filename = "covid19sitrep_%s.csv" % countryiso
     resourcedata = {
         "name": "COVID-19 indicators for %s" % countryname,
         "description": "COVID-19 Situation Report",
-        "countryiso":country["iso3"].lower(),
+        "countryiso":countryiso,
         "countryname":countryname
     }
     success, results = dataset.generate_resource_from_iterator(
         headers,
         countrydata,
         hxltags,
-        folder,
+        "out",#folder,
         filename,
         resourcedata,
         datecol="TIME_PERIOD",
@@ -101,10 +114,11 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers):
         {
             "name": "%s-showcase" % slugified_name,
             "title": name,
-            "notes": "",
-            "url": "",
-            "image_url": "",
+            "notes": "Cases of severe acute malnutrition (SAM) and actions taken.",
+            "url": "https://sites.unicef.org/nutrition/index_sam.html",
+            "image_url": "https://sites.unicef.org/includes/images/unicef_for-every-child_EN.png",
         }
     )
-    showcase.add_tags([])
+    showcase.add_tags(["hxl", "children", "COVID-19", "malnutrition"])
     return dataset, showcase
+
