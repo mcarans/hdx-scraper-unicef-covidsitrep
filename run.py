@@ -25,7 +25,7 @@ def main():
     """Generate dataset and create it in HDX"""
 
     with Download() as downloader:
-        url = Configuration.read()['url']
+        url = Configuration.read()['CV_03_04']['url']
         countries, countriesdata, headers = get_countriesdata(url, downloader)
         logger.info('Number of datasets to upload: %d' % len(countries))
         for info, country in progress_storing_tempdir('UNICEFSAM', countries, 'iso3'):

@@ -1,3 +1,176 @@
-# Collector specific configuration
-url: "https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-03-04?format=csv"
-
+CV_01_01:
+  description: Number of people reached on COVID-19 through messaging on prevention
+    and access to services.
+  filename: covid19sitrep0101_prevention_and_services
+  identifier: CV-01-01
+  name: People reached on COVID-19 through messaging on prevention and access to services
+  text: Number of people reached on COVID-19 through MESSAGING ON PREVENTION AND ACCESS
+    TO SERVICES
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-01-01?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-01-01
+CV_01_02:
+  description: Number of people engaged on COVID-19 through RCCE actions
+  filename: covid19sitrep0102_rcce
+  identifier: CV-01-02
+  name: People engaged on COVID-19 through RCCE actions
+  text: Number of people engaged on COVID-19 through RCCE ACTIONS
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-01-02?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-01-02
+CV_01_03:
+  description: Number of people sharing their concerns and asking questions/clarifications
+    for available support services to address their needs through established feedback mechanisms
+  filename: covid19sitrep0103_feedback
+  identifier: CV-01-03
+  name: People sharing their concerns
+  text: Number of people sharing their concerns and asking questions/clarifications
+    for available support services to address their needs through established FEEDBACK
+    MECHANISMS
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-01-03?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-01-03
+CV_02_01:
+  description: Number of people reached with critical wash supplies
+    (including hygiene items) and services.
+  filename: covid19sitrep0201_hygiene_items
+  identifier: CV-02-01
+  name: Number of people reached with critical wash supplies and services
+  text: Number of people reached with CRITICAL WASH SUPPLIES (INCLUDING HYGIENE ITEMS)
+    AND SERVICES
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-02-01?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-02-01
+CV_02_02:
+  description: Number of healthcare workers within health facilities and communities
+    provided with personal protective equipment (PPE)
+  filename: covid19sitrep0202_ppe
+  identifier: CV-02-02
+  name: Number of healthcare workers provided with personal protective equipment
+  text: Number of healthcare workers within health facilities and communities provided
+    with PERSONAL PROTECTIVE EQUIPMENT (PPE)
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-02-02?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-02-02
+CV_02_03:
+  description: Number of healthcare facility staff and community health workers trained in infection prevention and control (IPC)
+  filename: covid19sitrep0203_ipc
+  identifier: CV-02-03
+  name: Healthcare facility staff trained in infection prevention and control
+  text: Number of healthcare facility staff and community health workers TRAINED IN
+    INFECTION PREVENTION AND CONTROL (IPC)
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-02-03?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-02-03
+CV_03_01:
+  description: Number of healthcare providers trained in detecting, referral and appropriate management of COVID-19 cases.
+  filename: covid19sitrep0301_detect_manage
+  identifier: CV-03-01
+  name: Healthcare providers - detecting, referral and management of COVID-19 cases
+  text: Number of healthcare providers TRAINED IN DETECTING, REFERRAL AND APPROPRIATE
+    MANAGEMENT of COVID-19 cases.
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-03-01?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-03-01
+CV_03_02:
+  description: Number of children and women receiving essential healthcare, including
+    prenatal, delivery and postnatal care, essential newborn care, immunization, treatment
+    of childhood illnesses and HIV care through UNICEF supported community health
+    workers and health facilities.
+  filename: covid19sitrep0302_essential_healthcare
+  identifier: CV-03-02
+  name: Children and women receiving essential healthcare
+  text: Number of children and women receiving ESSENTIAL HEALTHCARE, including prenatal,
+    delivery and postnatal care, essential newborn care, immunization, treatment of
+    childhood illnesses and HIV care through UNICEF supported community health workers
+    and health facilities.
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-03-02?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-03-02
+CV_03_03:
+  description: Number of caregivers of children (0-23 months) reached with messages on breastfeeding in the context of COVID-19
+  filename: covid19sitrep0303_caregivers
+  identifier: CV-03-03
+  name: Caregivers of children reached with messages on breastfeeding in the context of COVID-19
+  text: Number of caregivers of children (0-23 months) reached with MESSAGES ON BREASTFEEDING
+    in the context of COVID-19
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-03-03?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-03-03
+CV_03_04:
+  description: Number of children 6-59 months admitted for treatment of severe acute malnutrition (SAM)
+  filename: covid19sitrep0304_sam
+  identifier: CV-03-04
+  name: Children 6-59 months treatment of severe acute malnutrition
+  text: Number of children 6-59 months admitted for TREATMENT OF SEVERE ACUTE MALNUTRITION
+    (SAM)
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-03-04?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-03-04
+CV_04_01:
+  description: Number of children supported with distance/home-based learning
+  filename: covid19sitrep0401_distance_or_home_learning
+  identifier: CV-04-01
+  name: Children supported with distance or home-based learning
+  text: Number of children supported with DISTANCE/HOME-BASED LEARNING
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-04-01?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-04-01
+CV_04_02:
+  description: Number of schools implementing safe school protocols (COVID-19 prevention
+    and control).
+  filename: covid19sitrep0402_safe_school
+  identifier: CV-04-02
+  name: Schools implementing safe school protocols (COVID-19 prevention and control)
+  text: Number of schools implementing SAFE SCHOOL PROTOCOLS (COVID-19 prevention
+    and control).
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-04-02?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-04-02
+CV_04_03:
+  description: Number of children without parental or family care provided with appropriate
+    alternative care arrangements.
+  filename: covid19sitrep0403_children_without_family_care
+  identifier: CV-04-03
+  name: Children without parental or family care provided with alternative care arrangements
+  text: Number of children without parental or family care provided with appropriate
+    ALTERNATIVE CARE ARRANGEMENTS.
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-04-03?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-04-03
+CV_04_04:
+  description: Number of children, parents and primary caregivers provided with community
+    based mental health and psychosocial support.
+  filename: covid19sitrep0404_psychosocial_support
+  identifier: CV-04-04
+  name: Children and primary caregivers with mental health and psychosocial support
+  text: Number of children, parents and primary caregivers provided with community
+    based MENTAL HEALTH AND PSYCHOSOCIAL SUPPORT.
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-04-04?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-04-04
+CV_04_05:
+  description: Number of UNICEF personnel & partners that have completed training
+    on GBV risk mitigation & referrals for survivors
+  filename: covid19sitrep0405_GBV_risk_training
+  identifier: CV-04-05
+  name: UNICEF personnel and partners trained on GBV risk mitigation
+  text: Number of UNICEF personnel & partners that have completed TRAINING ON GBV
+    RISK MITIGATION & REFERRALS FOR SURVIVORS
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-04-05?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-04-05
+CV_04_06:
+  description: Number of children and adults that have access to a safe and accessible channel to report sexual exploitation and abuse
+  filename: covid19sitrep0406_sexual_exploitation_and_abuse_report_channel
+  identifier: CV-04-06
+  name: Children and adults with access to a channel to report sexual exploitation and abuse
+  text: Number of children and adults that have access to a SAFE AND ACCESSIBLE CHANNEL
+    TO REPORT SEXUAL EXPLOITATION AND ABUSE
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-04-06?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-04-06
+CV_05_01:
+  description: Number of households receiving humanitarian cash transfers through
+    UNICEF response to COVID-19
+  filename: covid19sitrep0501_humanitarian_cash_transfers
+  identifier: CV-05-01
+  name: Households receiving humanitarian cash transfers through UNICEF response to COVID-19
+  text: Number of households receiving HUMANITARIAN CASH TRANSFERS through UNICEF
+    response to COVID-19
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-05-01?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-05-01
+CV_05_02:
+  description: Number of households benefitting from new or additional
+    social assistance measures provided by governments to respond to COVID-19 with UNICEF support
+  filename: covid19sitrep0502_social_assistance
+  identifier: CV-05-02
+  name: Households benefitting from social assistance measures to respond to COVID-19 with UNICEF support
+  text: Number of households benefitting from new or additional SOCIAL ASSISTANCE
+    MEASURES provided by governments to respond to COVID-19 with UNICEF support
+  url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-05-02?format=csv
+  urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-05-02
