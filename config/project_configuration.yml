@@ -8,6 +8,10 @@ CV_01_01:
     TO SERVICES
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-01-01?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-01-01
+  observation_field: People reached through messaging
+  observation_field_hxl: "#indicator+value+num+messaging"
+  target_field: People reached through messaging target
+  target_field_hxl: "#indicator+target+num+messaging"
 CV_01_02:
   description: Number of people engaged on COVID-19 through RCCE actions
   filename: covid19sitrep0102_rcce
@@ -16,6 +20,10 @@ CV_01_02:
   text: Number of people engaged on COVID-19 through RCCE ACTIONS
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-01-02?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-01-02
+  observation_field: People RCCE actions
+  observation_field_hxl: "#indicator+value+num+rcce"
+  target_field: People RCCE actions target
+  target_field_hxl: "#indicator+target+num+rcce"
 CV_01_03:
   description: Number of people sharing their concerns and asking questions/clarifications
     for available support services to address their needs through established feedback mechanisms
@@ -27,6 +35,10 @@ CV_01_03:
     MECHANISMS
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-01-03?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-01-03
+  observation_field: People concerns
+  observation_field_hxl: "#indicator+value+num+concerns"
+  target_field: People concerns target
+  target_field_hxl: "#indicator+target+num+concerns"
 CV_02_01:
   description: Number of people reached with critical wash supplies
     (including hygiene items) and services.
@@ -37,6 +49,10 @@ CV_02_01:
     AND SERVICES
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-02-01?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-02-01
+  observation_field: People with wash supplies
+  observation_field_hxl: "#indicator+value+num+hygiene"
+  target_field: People with wash supplies target
+  target_field_hxl: "#indicator+target+num+hygiene"
 CV_02_02:
   description: Number of healthcare workers within health facilities and communities
     provided with personal protective equipment (PPE)
@@ -47,6 +63,10 @@ CV_02_02:
     with PERSONAL PROTECTIVE EQUIPMENT (PPE)
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-02-02?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-02-02
+  observation_field: Healthcare workers with PPE
+  observation_field_hxl: "#indicator+value+num+healthcare+workers+ppe"
+  target_field: Healthcare workers with PPE target
+  target_field_hxl: "#indicator+target+num+healthcare+workers+ppe"
 CV_02_03:
   description: Number of healthcare facility staff and community health workers trained in infection prevention and control (IPC)
   filename: covid19sitrep0203_ipc
@@ -56,6 +76,10 @@ CV_02_03:
     INFECTION PREVENTION AND CONTROL (IPC)
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-02-03?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-02-03
+  observation_field: Healthcare workers with IPC training
+  observation_field_hxl: "#indicator+value+num+healthcare+workers+ipc"
+  target_field: Healthcare workers with IPC training target
+  target_field_hxl: "#indicator+target+num+healthcare+workers+ipc"
 CV_03_01:
   description: Number of healthcare providers trained in detecting, referral and appropriate management of COVID-19 cases.
   filename: covid19sitrep0301_detect_manage
@@ -65,6 +89,10 @@ CV_03_01:
     MANAGEMENT of COVID-19 cases.
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-03-01?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-03-01
+  observation_field: Healthcare providers with COVID19 management training
+  observation_field_hxl: "#indicator+value+num+healthcare+providers+covid19"
+  target_field: Healthcare providers with COVID19 management training target
+  target_field_hxl: "#indicator+target+num+healthcare+providers+covid19"
 CV_03_02:
   description: Number of children and women receiving essential healthcare, including
     prenatal, delivery and postnatal care, essential newborn care, immunization, treatment
@@ -79,6 +107,10 @@ CV_03_02:
     and health facilities.
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-03-02?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-03-02
+  observation_field: Essential health care receivers
+  observation_field_hxl: "#indicator+value+num+healthcare+receivers+f+children"
+  target_field: Essential health care receivers target
+  target_field_hxl: "#indicator+target+num+healthcare+receivers+f+children"
 CV_03_03:
   description: Number of caregivers of children (0-23 months) reached with messages on breastfeeding in the context of COVID-19
   filename: covid19sitrep0303_caregivers
@@ -88,6 +120,10 @@ CV_03_03:
     in the context of COVID-19
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-03-03?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-03-03
+  observation_field: Children caregivers messaged on breastfeeding
+  observation_field_hxl: "#indicator+value+num+caregivers+breastfeeding"
+  target_field: Children caregivers messaged on breastfeeding target
+  target_field_hxl: "#indicator+target+num+caregivers+breastfeeding"
 CV_03_04:
   description: Number of children 6-59 months admitted for treatment of severe acute malnutrition (SAM)
   filename: covid19sitrep0304_sam
@@ -97,6 +133,10 @@ CV_03_04:
     (SAM)
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-03-04?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-03-04
+  observation_field: Children SAM
+  observation_field_hxl: "#indicator+value+num+children+sam"
+  target_field: Children caregivers messaged on breastfeeding target
+  target_field_hxl: "#indicator+target+num+children+sam"
 CV_04_01:
   description: Number of children supported with distance/home-based learning
   filename: covid19sitrep0401_distance_or_home_learning
@@ -105,6 +145,10 @@ CV_04_01:
   text: Number of children supported with DISTANCE/HOME-BASED LEARNING
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-04-01?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-04-01
+  observation_field: Children with distance learning
+  observation_field_hxl: "#indicator+value+num+children+distance+home+learning"
+  target_field: Children with distance learning target
+  target_field_hxl: "#indicator+target+num+children+distance+home+learning"
 CV_04_02:
   description: Number of schools implementing safe school protocols (COVID-19 prevention
     and control).
@@ -115,6 +159,10 @@ CV_04_02:
     and control).
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-04-02?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-04-02
+  observation_field: Schools with safe school protocols
+  observation_field_hxl: "#indicator+value+num+schools+safe+protocol"
+  target_field: Schools with safe school protocols target
+  target_field_hxl: "#indicator+target+num+schools+safe+protocol"
 CV_04_03:
   description: Number of children without parental or family care provided with appropriate
     alternative care arrangements.
@@ -125,6 +173,10 @@ CV_04_03:
     ALTERNATIVE CARE ARRANGEMENTS.
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-04-03?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-04-03
+  observation_field: Children with alternative care
+  observation_field_hxl: "#indicator+value+num+children+alternative+care"
+  target_field: Children with alternative care target
+  target_field_hxl: "#indicator+target+num+children+alternative+care"
 CV_04_04:
   description: Number of children, parents and primary caregivers provided with community
     based mental health and psychosocial support.
@@ -135,6 +187,10 @@ CV_04_04:
     based MENTAL HEALTH AND PSYCHOSOCIAL SUPPORT.
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-04-04?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-04-04
+  observation_field: Children and caregivers with psychosocial support
+  observation_field_hxl: "#indicator+value+num+children+caregivers+mental+psychosocial+support"
+  target_field: Children and caregivers with psychosocial support target
+  target_field_hxl: "#indicator+target+num+children+caregivers+mental+psychosocial+support"
 CV_04_05:
   description: Number of UNICEF personnel & partners that have completed training
     on GBV risk mitigation & referrals for survivors
@@ -145,6 +201,10 @@ CV_04_05:
     RISK MITIGATION & REFERRALS FOR SURVIVORS
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-04-05?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-04-05
+  observation_field: UNICEF personal with GBV risk training
+  observation_field_hxl: "#indicator+value+num+personal+gbv+training"
+  target_field: UNICEF personal with GBV risk training target
+  target_field_hxl: "#indicator+target+num+personal+gbv+training"
 CV_04_06:
   description: Number of children and adults that have access to a safe and accessible channel to report sexual exploitation and abuse
   filename: covid19sitrep0406_sexual_exploitation_and_abuse_report_channel
@@ -154,6 +214,10 @@ CV_04_06:
     TO REPORT SEXUAL EXPLOITATION AND ABUSE
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-04-06?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-04-06
+  observation_field: People with channel to report sexual abuse
+  observation_field_hxl: "#indicator+value+num+sexual+abuse+report+channel"
+  target_field: People with channel to report sexual abuse target
+  target_field_hxl: "#indicator+target+num+sexual+abuse+report+channel"
 CV_05_01:
   description: Number of households receiving humanitarian cash transfers through
     UNICEF response to COVID-19
@@ -164,6 +228,10 @@ CV_05_01:
     response to COVID-19
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-05-01?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-05-01
+  observation_field: Households receiving humanitarian cash transfers
+  observation_field_hxl: "#indicator+value+num+households+humanitarian+support"
+  target_field: Households receiving humanitarian cash transfers target
+  target_field_hxl: "#indicator+target+num+households+humanitarian+support"
 CV_05_02:
   description: Number of households benefitting from new or additional
     social assistance measures provided by governments to respond to COVID-19 with UNICEF support
@@ -174,3 +242,7 @@ CV_05_02:
     MEASURES provided by governments to respond to COVID-19 with UNICEF support
   url: https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-05-02?format=csv
   urn: urn:sdmx:org.sdmx.infomodel.codelist.Code=UNICEF.EMOPS:CL_EMOPS_INDICATORS(1.0).CV-05-02
+  observation_field: Households with social assistance
+  observation_field_hxl: "#indicator+value+num+households+government+assistance"
+  target_field: Households with social assistance target
+  target_field_hxl: "#indicator+target+num+households+government+assistance"

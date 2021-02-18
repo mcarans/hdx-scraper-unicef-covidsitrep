@@ -86,6 +86,31 @@ def get_all_countriesdata(config, downloader, with_world=True):
 
     return countries_from_iso_list(countriesset), countriesdata, headers
 
+def join_reports(countrydata, config):
+    key_fields = ["REF_AREA", "Geographic area", "TIME_PERIOD", "DATA_SOURCE"]
+    data = {}
+    headers = key_fields[:]
+
+    for report_id, report_rows in countrydata.items():
+        for report_row in report_rows:
+            report_config = config.get(report_id,{})
+            key = tuple(report_row[field] for field in key_fields)
+            joined_row = data.get(key, {})
+            for field_type, source_field in (("observation_field", "OBS_VALUE"), ("target_field", "TARGET")):
+                if field_type in report_config:
+                    destination_field = report_config[field_type]
+                    joined_row[destination_field] = report_row[source_field]
+                    if destination_field not in headers:
+                        headers.append(destination_field)
+            data[key]=joined_row
+
+    rows = []
+    for key_values, joined_values in data.items():
+        row_key = dict(zip(key_fields, key_values))
+        rows.append({**row_key, **joined_values})
+    return rows, headers
+
+
 
 def generate_dataset_and_showcase(folder, country, countrydata, headers, config):
     countryname = country["name"]
@@ -124,6 +149,28 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers, config)
             logger.error(f"{countryname} ({countryiso})  not recognised!")
             return None, None
 
+    joined_rows, joined_headers = join_reports(countrydata, config)
+
+    filename = "covid19sitrep_joined_%s.csv" % countryiso
+
+    resourcedata = {
+        "name": "Joined COVID-19 Situation Report Data - %s" % (countryname),
+        "description": "Data joined from all situational reports",
+        "countryiso": countryiso,
+        "countryname": countryname,
+    }
+    success, results = dataset.generate_resource_from_iterator(
+        joined_headers,
+        joined_rows,
+        hxltags,
+        "out",  # folder,
+        filename,
+        resourcedata,
+        datecol="TIME_PERIOD",
+    )
+    if success is False:
+        logger.warning("Joined resource %s has no data!" % filename)
+
     for report_id in countrydata.keys():
         resource_config = config[report_id]
         filename = resource_config["filename"] + "_%s.csv" % countryiso
@@ -144,8 +191,7 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers, config)
             datecol="TIME_PERIOD",
         )
         if success is False:
-            logger.warning("%s has no data!" % name)
-            return None, None
+            logger.warning("%s has no data!" % filename)
 
     showcase = Showcase(
         {
