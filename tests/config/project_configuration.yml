@@ -1,3 +1,20 @@
 # Collector specific configuration
-base_url: "https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF.EMOPS,DF_SITREP_COVID19,1.0/.CV-03-04?format=csv"
-
+CV_01_01:
+  description: Description1
+  filename: filename1
+  identifier: CV-01-01
+  name: name1
+  url: http://url1
+  observation_field: observation_field1
+  observation_field_hxl: "#observation_field1"
+  target_field: target_field1
+  target_field_hxl: "#target_field1"
+CV_01_02:
+  description: Description2
+  filename: filename2
+  identifier: CV-01-02
+  name: name2
+  url: http://url2
+  observation_field: observation_field2
+  observation_field_hxl: "#observation_field2"
+ 

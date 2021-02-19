@@ -110,7 +110,14 @@ def join_reports(countrydata, config):
         rows.append({**row_key, **joined_values})
     return rows, headers
 
-
+def hxltags_from_config(config):
+    hxltags={}
+    for report_config in config.values():
+        for field in ("observation_field", "target_field"):
+            field_hxl = field + "_hxl"
+            if field in report_config and field_hxl in report_config:
+                hxltags[report_config[field]] = report_config[field_hxl]
+    return hxltags
 
 def generate_dataset_and_showcase(folder, country, countrydata, headers, config):
     countryname = country["name"]
@@ -162,8 +169,8 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers, config)
     success, results = dataset.generate_resource_from_iterator(
         joined_headers,
         joined_rows,
-        hxltags,
-        "out",  # folder,
+        {**hxltags, **hxltags_from_config(config)},
+        folder,
         filename,
         resourcedata,
         datecol="TIME_PERIOD",
@@ -185,7 +192,7 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers, config)
             headers[report_id],
             countrydata[report_id],
             hxltags,
-            "out",  # folder,
+            folder,
             filename,
             resourcedata,
             datecol="TIME_PERIOD",
