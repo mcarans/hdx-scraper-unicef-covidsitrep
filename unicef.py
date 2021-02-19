@@ -119,6 +119,7 @@ def hxltags_from_config(config):
                 hxltags[report_config[field]] = report_config[field_hxl]
     return hxltags
 
+
 def generate_dataset_and_showcase(folder, country, countrydata, headers, config):
     countryname = country["name"]
     countryiso = country["iso3"].lower()

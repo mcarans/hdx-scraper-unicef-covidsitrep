@@ -17,6 +17,7 @@ from unicef import (
     get_countriesdata,
     get_all_countriesdata,
     join_reports,
+    hxltags_from_config
 )
 
 
@@ -112,9 +113,20 @@ class TestScraperName:
         assert rows[0]["observation_field2"]=='3'
         assert "target_field2" not in rows[0]
 
-#    def test_generate_dataset_and_showcase(self, configuration, downloader):
+    def test_hxltags_from_config(self, config):
+        tags = hxltags_from_config(config)
+        assert tags == dict(
+            observation_field1="#observation_field1",
+            target_field1="#target_field1",
+            observation_field2="#observation_field2",
+        )
+
+#    def test_generate_dataset_and_showcase(self, configuration, downloader, config):
+#        countries, countriesdata, headers = get_all_countriesdata(config, downloader)
+#        country = [c for c in countries if c["iso3"]=="AFG"][0]
+#        countrydata = countriesdata[country["iso3"]]
 #        with temp_dir('scrapername') as folder:  # if you need a temporary folder that will be deleted
-#            dataset, showcase = generate_dataset_and_showcase(downloader, folder, TestScraperName.countrydata)
+#            dataset, showcase = generate_dataset_and_showcase(folder, country, countrydata, headers, config)
 #            assert dataset == {...}
 #
 #            resources = dataset.get_resources()
