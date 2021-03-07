@@ -17,6 +17,7 @@ from unicef import (
     get_countriesdata,
     get_all_countriesdata,
     join_reports,
+    concat_reports,
     hxltags_from_config
 )
 
@@ -112,6 +113,15 @@ class TestScraperName:
         assert rows[0]["target_field1"]=='2'
         assert rows[0]["observation_field2"]=='3'
         assert "target_field2" not in rows[0]
+
+    def test_concat_reports(self, downloader, config):
+        countries, countriesdata, headers = get_all_countriesdata(config, downloader)
+        rows, headers = concat_reports(countriesdata["AFG"])
+        assert len(rows) == 2
+        assert rows[0]["OBS_VALUE"]=='1'
+        assert rows[0]["TARGET"]=='2'
+        assert rows[1]["OBS_VALUE"]=='3'
+        assert rows[1]["TARGET"]=='4'
 
     def test_hxltags_from_config(self, config):
         tags = hxltags_from_config(config)

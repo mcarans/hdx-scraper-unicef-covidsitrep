@@ -86,6 +86,36 @@ def get_all_countriesdata(config, downloader, with_world=True):
 
     return countries_from_iso_list(countriesset), countriesdata, headers
 
+def concat_reports(countrydata):
+    key_fields = [
+        "REF_AREA",
+        "Geographic area",
+        "SITREP_INDICATOR",
+        "Situation Report Indicator",
+        "HAC_PILLAR",
+        "Humanitarian Action for Children Pillar",
+        "UNIT_MEASURE",
+        "Unit of measure",
+        "TIME_PERIOD",
+        "OBS_VALUE",
+        "DATA_SOURCE",
+        "TARGET",
+        "OBS_STATUS",
+        "Observation status"
+    ]
+    headers = key_fields[:]
+
+    rows = []
+    for report_id in sorted(countrydata.keys()):
+        report_rows = countrydata[report_id]
+        for report_row in report_rows:
+            rows.append(report_row)
+            for field in sorted(report_row.keys()):
+                if field not in headers:
+                    headers.append(field)
+
+    return rows, headers
+
 def join_reports(countrydata, config):
     key_fields = ["REF_AREA", "Geographic area", "TIME_PERIOD", "DATA_SOURCE"]
     data = {}
@@ -157,6 +187,10 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers, config)
             logger.error(f"{countryname} ({countryiso})  not recognised!")
             return None, None
 
+    ################################################################
+    # Joined reports
+    ################################################################
+
     joined_rows, joined_headers = join_reports(countrydata, config)
 
     filename = "covid19sitrep_joined_%s.csv" % countryiso
@@ -178,6 +212,36 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers, config)
     )
     if success is False:
         logger.warning("Joined resource %s has no data!" % filename)
+
+    ################################################################
+    # Concatenated reports
+    ################################################################
+
+    joined_rows, joined_headers = concat_reports(countrydata)
+
+    filename = "covid19sitrep_concat_%s.csv" % countryiso
+
+    resourcedata = {
+        "name": "Concatenated COVID-19 Situation Report Data - %s" % (countryname),
+        "description": "Data concatenated from all situational reports",
+        "countryiso": countryiso,
+        "countryname": countryname,
+    }
+    success, results = dataset.generate_resource_from_iterator(
+        joined_headers,
+        joined_rows,
+        {**hxltags, **hxltags_from_config(config)},
+        folder,
+        filename,
+        resourcedata,
+        datecol="TIME_PERIOD",
+    )
+    if success is False:
+        logger.warning("Concatenated resource %s has no data!" % filename)
+
+    ################################################################
+    # Individual reports
+    ################################################################
 
     for report_id in countrydata.keys():
         resource_config = config[report_id]
