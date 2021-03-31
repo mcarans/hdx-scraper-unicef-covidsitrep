@@ -75,6 +75,8 @@ def get_all_countriesdata(config, downloader, with_world=True):
     countriesdata = {}
     headers = {}
     for report_id, report_config in config.items():
+        if report_id == "qc_indicators":
+            continue
         logger.info("Getting situation report %s" % report_id)
         url = report_config["url"]
         report_countriesdata, report_headers = get_countriesdata(url, downloader)
@@ -209,6 +211,7 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers, config)
         filename,
         resourcedata,
         datecol="TIME_PERIOD",
+#        quickcharts=
     )
     if success is False:
         logger.warning("Joined resource %s has no data!" % filename)
