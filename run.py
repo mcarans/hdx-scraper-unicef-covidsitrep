@@ -25,15 +25,17 @@ def main():
     """Generate dataset and create it in HDX"""
 
     with Download() as downloader:
-        project_config = {key:value for key,value in Configuration.read().items() if key.startswith("CV")}
+        config=Configuration.read()
+        project_config = {key:value for key,value in config.items() if key.startswith("CV")}
+        qc_indicators = config.get("qc_indicators",{})
         countries, countriesdata, headers = get_all_countriesdata(
                 project_config, downloader
             )
 
         logger.info("Number of datasets to upload: %d" % len(countries))
         for info, country in progress_storing_tempdir("UNICEFSAM", countries, "iso3"):
-            dataset, showcase = generate_dataset_and_showcase(
-                info["folder"], country, countriesdata[country["iso3"]], headers, project_config
+            dataset, showcase, bites_disabled = generate_dataset_and_showcase(
+                info["folder"], country, countriesdata[country["iso3"]], headers, project_config, qc_indicators
             )
             if dataset:
                 dataset.update_from_yaml()
@@ -43,7 +45,7 @@ def main():
                     updated_by_script="HDX Scraper: UNICEF Sam",
                     batch=info["batch"],
                 )
-                # dataset.generate_resource_view()
+                dataset.generate_resource_view(-1, bites_disabled=bites_disabled, indicators=qc_indicators)
                 showcase.create_in_hdx()
                 showcase.add_dataset(dataset)
 

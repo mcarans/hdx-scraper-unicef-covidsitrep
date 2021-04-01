@@ -75,8 +75,6 @@ def get_all_countriesdata(config, downloader, with_world=True):
     countriesdata = {}
     headers = {}
     for report_id, report_config in config.items():
-        if report_id == "qc_indicators":
-            continue
         logger.info("Getting situation report %s" % report_id)
         url = report_config["url"]
         report_countriesdata, report_headers = get_countriesdata(url, downloader)
@@ -152,7 +150,7 @@ def hxltags_from_config(config):
     return hxltags
 
 
-def generate_dataset_and_showcase(folder, country, countrydata, headers, config):
+def generate_dataset_and_showcase(folder, country, countrydata, headers, config, qc_indicators):
     countryname = country["name"]
     countryiso = country["iso3"].lower()
     if countryiso == WORLD:
@@ -190,33 +188,6 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers, config)
             return None, None
 
     ################################################################
-    # Joined reports
-    ################################################################
-
-    joined_rows, joined_headers = join_reports(countrydata, config)
-
-    filename = "covid19sitrep_joined_%s.csv" % countryiso
-
-    resourcedata = {
-        "name": "Joined COVID-19 Situation Report Data - %s" % (countryname),
-        "description": "Data joined from all situational reports",
-        "countryiso": countryiso,
-        "countryname": countryname,
-    }
-    success, results = dataset.generate_resource_from_iterator(
-        joined_headers,
-        joined_rows,
-        {**hxltags, **hxltags_from_config(config)},
-        folder,
-        filename,
-        resourcedata,
-        datecol="TIME_PERIOD",
-#        quickcharts=
-    )
-    if success is False:
-        logger.warning("Joined resource %s has no data!" % filename)
-
-    ################################################################
     # Concatenated reports
     ################################################################
 
@@ -230,6 +201,38 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers, config)
         "countryiso": countryiso,
         "countryname": countryname,
     }
+    values = [x['code'] for x in qc_indicators]
+    success, results = dataset.generate_resource_from_iterator(
+        joined_headers,
+        joined_rows,
+        {**hxltags, **hxltags_from_config(config)},
+        folder,
+        filename,
+        resourcedata,
+        datecol="TIME_PERIOD",
+        quickcharts = {'hashtag': '#indicator+code', 'values': values, 'numeric_hashtag': '#indicator+value+num'}
+#                   'cutdown': 2, 'cutdownhashtags': ['#indicator+code', '#country+code', '#date+year+end', '#sex+name']}
+    )
+    bites_disabled = results["bites_disabled"]
+    if success is False:
+        logger.warning("Concatenated resource %s has no data!" % filename)
+
+
+    ################################################################
+    # Joined reports
+    ################################################################
+
+    joined_rows, joined_headers = join_reports(countrydata, config)
+
+    filename = "covid19sitrep_joined_%s.csv" % countryiso
+
+    resourcedata = {
+        "name": "Joined COVID-19 Situation Report Data - %s" % (countryname),
+        "description": "Data joined from all situational reports",
+        "countryiso": countryiso,
+        "countryname": countryname,
+    }
+
     success, results = dataset.generate_resource_from_iterator(
         joined_headers,
         joined_rows,
@@ -240,7 +243,7 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers, config)
         datecol="TIME_PERIOD",
     )
     if success is False:
-        logger.warning("Concatenated resource %s has no data!" % filename)
+        logger.warning("Joined resource %s has no data!" % filename)
 
     ################################################################
     # Individual reports
@@ -288,4 +291,4 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers, config)
             "healthcare",
         ]
     )
-    return dataset, showcase
+    return dataset, showcase, bites_disabled
