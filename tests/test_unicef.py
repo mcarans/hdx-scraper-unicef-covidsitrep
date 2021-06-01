@@ -10,6 +10,7 @@ import pytest
 from hdx.hdx_configuration import Configuration
 from hdx.hdx_locations import Locations
 from hdx.location.country import Country
+from hdx.utilities.loader import load_yaml
 from hdx.utilities.path import temp_dir
 from hdx.data.vocabulary import Vocabulary
 from unicef import (
@@ -67,10 +68,7 @@ class TestScraperName:
 
     @pytest.fixture(scope="function")
     def config(self):
-        import yaml
-
-        with open(join("tests", "config", "project_configuration.yml")) as f:
-            return yaml.load(f, Loader=yaml.FullLoader)
+        return load_yaml(join("tests", "config", "project_configuration.yml"))
 
     @pytest.fixture(scope="function")
     def downloader(self):
