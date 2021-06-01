@@ -3,7 +3,7 @@
 name: Python package
 
 on:
-#  workflow_dispatch: # add run button in GitHub UI
+  workflow_dispatch: # add run button in GitHub UI
 #  schedule: #  Run script according to a cron schedule
 #    - cron: "30 14 * * *"
 
@@ -27,11 +27,16 @@ jobs:
         HDX_KEY: ${{ secrets.HDX_KEY }}
       run: |
         python run.py
-#    Script output can be committed to the GitHub repository. The below would commit all
-#    out*.json files to the repository.
-#    - uses: stefanzweifel/git-auto-commit-action@v4
-#      name: Commit updated data bundle
-#      with:
-#        file_pattern: out*.json
-#        commit_message: automatic - Data bundle updated
-#        push_options: '--force'
+    - name: Send mail
+      if: failure()
+      uses: dawidd6/action-send-mail@v2
+      with:
+        server_address: ${{secrets.EMAIL_SERVER}}
+        server_port: ${{secrets.EMAIL_PORT}}
+        username: ${{secrets.EMAIL_USERNAME}}
+        password: ${{secrets.EMAIL_PASSWORD}}
+        subject: "FAILED: ${{github.repository}} run job"
+        body: GitHub Actions run job for ${{github.repository}} failed!
+        to: ${{secrets.EMAIL_LIST}}
+        from: ${{secrets.EMAIL_FROM}}
+        content_type: text/html

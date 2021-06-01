@@ -1,6 +1,6 @@
-license_id: eg. "cc-by-igo"
-notes: eg. "Contains data from World Health Organization's [data portal](http://www.who.int/gho/en/) covering various indicators (one per resource)."
-caveats: eg. "More details about the indicators are available in the links in the resource descriptions."
-methodology: eg. "Registry"
-dataset_source: eg. "World Health Organization"
-private: eg. False  # has to be True or False
+license_id: "cc-by-igo"
+notes: "Situation reports are the main reporting tool to monitor UNICEF’s humanitarian response. They provide an update on the situation and needs of children in a country or region, as well as information on UNICEF’s response and funding requirements."
+caveats:
+methodology: "Registry"
+dataset_source: "UNICEF"
+private: False

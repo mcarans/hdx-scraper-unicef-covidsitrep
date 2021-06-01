@@ -159,10 +159,9 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers, config,
     else:
         title = "%s - COVID-19 Situation Report" % country["name"]
     logger.info("Creating dataset: %s" % title)
-    name = "UNICEF COVID-19 situation report indicators for %s" % country["name"]
+    name = "UNICEF COVID-19 situation report for %s" % country["name"]
     slugified_name = slugify(name).lower()
-    dataset = Dataset({"name": slugified_name, "title": title,})
-    #    dataset.set_maintainer("085d3bd8-9035-4b0e-9d2d-80e849dd7b07")
+    dataset = Dataset({"name": slugified_name, "title": title})
     dataset.set_maintainer("196196be-6037-4488-8b71-d786adf4c081")
     dataset.set_organization("3ab17ac1-1196-4501-a4dc-a01d2e52ff7c")
     dataset.set_subnational(False)
@@ -276,8 +275,8 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers, config,
         {
             "name": "%s-showcase" % slugified_name,
             "title": name,
-            "notes": "UNICEF Situation Reports for COVID19 including severe acute malnutrition (SAM) and actions taken.",
-            "url": "https://sites.unicef.org/nutrition/index_sam.html",
+            "notes": "Coronavirus (COVID-19) Global Response situation reports",
+            "url": "https://www.unicef.org/appeals/covid-19/situation-reports",
             "image_url": "https://sites.unicef.org/includes/images/unicef_for-every-child_EN.png",
         }
     )
