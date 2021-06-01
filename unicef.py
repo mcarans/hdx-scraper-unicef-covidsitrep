@@ -11,6 +11,7 @@ Reads UNICEF SAM COVID-19 csv and creates datasets.
 import logging
 
 from hdx.data.dataset import Dataset
+from hdx.data.hdxobject import HDXError
 from hdx.data.showcase import Showcase
 from hdx.location.country import Country
 from hdx.utilities.dictandlist import dict_of_lists_add
@@ -162,7 +163,7 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers, config,
     slugified_name = slugify(name).lower()
     dataset = Dataset({"name": slugified_name, "title": title,})
     #    dataset.set_maintainer("085d3bd8-9035-4b0e-9d2d-80e849dd7b07")
-    dataset.set_maintainer("9957c0e9-cd38-40f1-900b-22c91276154b")
+    dataset.set_maintainer("196196be-6037-4488-8b71-d786adf4c081")
     dataset.set_organization("3ab17ac1-1196-4501-a4dc-a01d2e52ff7c")
     dataset.set_subnational(False)
     dataset.set_expected_update_frequency("Every month")
@@ -210,8 +211,8 @@ def generate_dataset_and_showcase(folder, country, countrydata, headers, config,
         filename,
         resourcedata,
         datecol="TIME_PERIOD",
-        quickcharts = {'hashtag': '#indicator+code', 'values': values, 'numeric_hashtag': '#indicator+value+num'}
-#                   'cutdown': 2, 'cutdownhashtags': ['#indicator+code', '#country+code', '#date+year+end', '#sex+name']}
+        quickcharts={'hashtag': '#indicator+code', 'values': values, 'numeric_hashtag': '#indicator+value+num',
+                     'cutdown': 2, 'cutdownhashtags': ['#indicator+code', '#country+code', '#date', '#indicator+value+num']}
     )
     bites_disabled = results["bites_disabled"]
     if success is False:

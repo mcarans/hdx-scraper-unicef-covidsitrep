@@ -4,15 +4,18 @@ qc_indicators:
     unit: "Number"
     description: Number of people reached on COVID-19 through messaging on prevention
       and access to services.
+    date: "#date"
   - code: "CV-03-04"
     title: "Children 6-59 months treatment of severe acute malnutrition"
     unit: "Number"
     description: "Number of children 6-59 months admitted for treatment of severe acute malnutrition (SAM)"
+    date: "#date"
   - code: "CV-05-01"
     title: "Households receiving humanitarian cash transfers through UNICEF response to COVID-19"
     unit: "Number"
     description: Number of households receiving humanitarian cash transfers through
       UNICEF response to COVID-19
+    date: "#date"
 CV_01_01:
   description: Number of people reached on COVID-19 through messaging on prevention
     and access to services.

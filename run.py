@@ -39,13 +39,13 @@ def main():
             )
             if dataset:
                 dataset.update_from_yaml()
+                dataset.generate_resource_view(1, bites_disabled=bites_disabled, indicators=qc_indicators)
                 dataset.create_in_hdx(
                     remove_additional_resources=True,
                     hxl_update=False,
                     updated_by_script="HDX Scraper: UNICEF Sam",
                     batch=info["batch"],
                 )
-                dataset.generate_resource_view(-1, bites_disabled=bites_disabled, indicators=qc_indicators)
                 showcase.create_in_hdx()
                 showcase.add_dataset(dataset)
 
